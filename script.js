@@ -13,6 +13,15 @@ function atualizarResultadoExterno(valor) {
   resultadoExterno.textContent = valor;
 }
 
+function atualizarResultadohexadecimal(valor) {
+  resultadoBinario.textContent = valor;
+}
+
+function converterParaHexadecimal(numero) {
+  if (!Number.isFinite(numero)) return 'Erro';
+  return Number(numero).toString(2);
+}
+
 function atualizarResultadoBinario(valor) {
   resultadoBinario.textContent = valor;
 }
