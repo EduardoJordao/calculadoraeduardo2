@@ -17,8 +17,14 @@
 </head>
 
 <body>
-  <div class="calculadora">
-    <input type="text" id="display" readonly placeholder="0">
+  <div class="app-wrapper">
+    <aside class="resultado-box">
+      <p class="resultado-titulo">Resultado</p>
+      <div id="resultado-externo" aria-live="polite">0</div>
+    </aside>
+
+    <div class="calculadora">
+      <input type="text" id="display" readonly placeholder="0">
 
     <div class="botoes">
       <!-- Linha 1 - Funções científicas -->

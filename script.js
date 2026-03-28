@@ -1,11 +1,16 @@
 // JavaScript Mastery – Calculadora Científica Floresta Lunar
 
 const display = document.getElementById('display');
+const resultadoExterno = document.getElementById('resultado-externo');
 const clearBtn = document.getElementById('clear');
 const igualBtn = document.getElementById('igual');
 const toggleSinalBtn = document.getElementById('toggle-sinal');
 
 const botoes = document.querySelectorAll('button[data-value]');
+
+function atualizarResultadoExterno(valor) {
+  resultadoExterno.textContent = valor;
+}
 
 botoes.forEach(botao => {
   botao.addEventListener('click', () => {
@@ -16,10 +21,6 @@ botoes.forEach(botao => {
 
 function addToDisplay(valor) {
   display.value += valor;
-}
-
-function limparDisplay() {
-  display.value = '';
 }
 
 function toggleSinal() {
@@ -48,10 +49,17 @@ function calcular() {
     display.value = Number.isFinite(resultado)
       ? Number(resultado.toFixed(8)).toString().replace(/\.?0+$/, '')
       : 'Erro';
+    atualizarResultadoExterno(display.value);
   } catch (err) {
     display.value = 'Erro';
+    atualizarResultadoExterno('Erro');
     setTimeout(limparDisplay, 1400);
   }
+}
+
+function limparDisplay() {
+  display.value = '';
+  atualizarResultadoExterno('0');
 }
 
 clearBtn.addEventListener('click', limparDisplay);
