@@ -2,6 +2,7 @@
 
 const display = document.getElementById('display');
 const resultadoExterno = document.getElementById('resultado-externo');
+const resultadoBinario = document.getElementById('resultado-binario');
 const clearBtn = document.getElementById('clear');
 const igualBtn = document.getElementById('igual');
 const toggleSinalBtn = document.getElementById('toggle-sinal');
@@ -10,6 +11,15 @@ const botoes = document.querySelectorAll('button[data-value]');
 
 function atualizarResultadoExterno(valor) {
   resultadoExterno.textContent = valor;
+}
+
+function atualizarResultadoBinario(valor) {
+  resultadoBinario.textContent = valor;
+}
+
+function converterParaBinario(numero) {
+  if (!Number.isFinite(numero)) return 'Erro';
+  return Number(numero).toString(2);
 }
 
 botoes.forEach(botao => {
@@ -50,6 +60,9 @@ function calcular() {
       ? Number(resultado.toFixed(8)).toString().replace(/\.?0+$/, '')
       : 'Erro';
     atualizarResultadoExterno(display.value);
+    atualizarResultadoBinario(
+      display.value !== 'Erro' ? converterParaBinario(Number(display.value)) : 'Erro'
+    );
   } catch (err) {
     display.value = 'Erro';
     atualizarResultadoExterno('Erro');
@@ -60,6 +73,7 @@ function calcular() {
 function limparDisplay() {
   display.value = '';
   atualizarResultadoExterno('0');
+  atualizarResultadoBinario('0');
 }
 
 clearBtn.addEventListener('click', limparDisplay);

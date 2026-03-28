@@ -38,6 +38,22 @@ body {
   text-align: center;
 }
 
+.binario-box {
+  min-width: 170px;
+  width: auto;
+  max-width: 90vw;
+  padding: 22px;
+  background: rgba(0, 13, 26, 0.9);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .resultado-titulo {
   margin-bottom: 12px;
   color: #7be9ff;
@@ -46,8 +62,10 @@ body {
   text-transform: uppercase;
 }
 
-#resultado-externo {
+#resultado-externo,
+#resultado-binario {
   width: 100%;
+  min-width: 0;
   padding: 16px 12px;
   border-radius: 16px;
   background: rgba(0, 255, 255, 0.08);
@@ -56,6 +74,8 @@ body {
   font-size: 2rem;
   font-weight: 700;
   box-shadow: inset 0 3px 12px rgba(0, 255, 255, 0.08);
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 
 .calculadora {
@@ -72,7 +92,8 @@ body {
   .app-wrapper {
     flex-direction: column;
   }
-  .resultado-box {
+  .resultado-box,
+  .binario-box {
     width: 100%;
     max-width: 420px;
   }
