@@ -1,0 +1,23 @@
+{
+  "name": "calculadora-cientifica-lunar",
+  "version": "1.0.0",
+  "description": "Calculadora Científica PWA com tema Floresta Lunar",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "calculadora",
+    "pwa",
+    "progressive-web-app",
+    "científica",
+    "offline"
+  ],
+  "author": "Eduardo Jordão",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

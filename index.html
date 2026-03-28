@@ -4,7 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora Científica - Floresta Lunar 🐺🌕</title>
+  <meta name="theme-color" content="#6432c8">
+  <meta name="description" content="Calculadora científica com interface temática Floresta Lunar">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Calc Lunar">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230f0c29' width='192' height='192'/><text x='50%' y='50%' font-size='80' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%236432c8'>√</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230f0c29' width='192' height='192'/><text x='50%' y='50%' font-size='80' font-weight='bold' text-anchor='middle' dominant-baseline='central' fill='%236432c8'>√</text></svg>">
+  <title>Calculadora Científica - Oceano Profundo 🦈🐙</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -37,34 +45,67 @@
       <button class="cientifica" data-value="%">%</button>
       <button class="cientifica" id="toggle-sinal">±</button>
 
-      <!-- Linha 4 - 4 5 6 × 🌲 🌲 -->
+      <!-- Linha 4 - 4 5 6 × 🪸 🪸 -->
       <button class="numero" data-value="4">4</button>
       <button class="numero" data-value="5">5</button>
       <button class="numero" data-value="6">6</button>
       <button class="operador" data-value="*">×</button>
-      <div class="floresta"><span>🌲</span></div>
-      <div class="floresta"><span>🌲</span></div>
+      <div class="corais"><span>🪸</span></div>
+      <div class="corais"><span>🪸</span></div>
 
-      <!-- Linha 5 - 1 2 3 − 🐾 🌕 -->
+      <!-- Linha 5 - 1 2 3 − 🐠 🐙 -->
       <button class="numero" data-value="1">1</button>
       <button class="numero" data-value="2">2</button>
       <button class="numero" data-value="3">3</button>
       <button class="operador" data-value="-">−</button>
-      <div class="garras"><span>🐾</span></div>
-      <div class="lua"><span>🌕</span></div>
+      <div class="peixes"><span>🐠</span></div>
+      <div class="polvo"><span>🐙</span></div>
 
-      <!-- Linha 6 - 0 (span 2) . = + 🐺 -->
+      <!-- Linha 6 - 0 (span 2) . = + 🦈 -->
       <button class="numero zero" data-value="0">0</button>
       <button class="numero" data-value=".">.</button>
       <button class="igual" id="igual">=</button>
       <button class="operador" data-value="+">+</button>
-      <div class="lobo-container">
-        <span class="lobo-emoji">🐺</span>
+      <div class="tubarao-container">
+        <span class="tubarao-emoji">🦈</span>
       </div>
     </div>
   </div>
 
   <script src="script.js"></script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then((registration) => {
+            console.log('✓ Service Worker registrado com sucesso:', registration);
+          })
+          .catch((error) => {
+            console.log('✗ Erro ao registrar Service Worker:', error);
+          });
+      });
+
+      // Detectar quando uma nova versão está disponível
+      navigator.serviceWorker.addEventListener('controller', () => {
+        console.log('✓ Nova versão da PWA carregada');
+      });
+    }
+
+    // Listener para instalar PWA (prompt de instalação)
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('✓ PWA pronta para instalação');
+      // Você pode mostrar um botão customizado para instalar aqui
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('✓ PWA instalada com sucesso');
+    });
+  </script>
 </body>
 
 </html>
